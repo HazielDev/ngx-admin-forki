@@ -1,1 +1,12 @@
-<p>products works!</p>
+<nb-card>
+  <nb-card-header>Gestión de Productos (T06-03)</nb-card-header>
+  <nb-card-body>
+
+    <ngx-custom-table
+      [headers]="['title', 'category', 'price', 'stock']"
+      [data]="products"
+      [isLoading]="products.length === 0">
+    </ngx-custom-table>
+
+  </nb-card-body>
+</nb-card>
