@@ -1,5 +1,4 @@
-<h1>-Products</h1>
-
+<h1>Products</h1>
 <ul>
   <li *ngFor="let product of products">
     {{ product.title }}
@@ -7,4 +6,50 @@
 </ul>
 
 <h1>Users</h1>
+<ul>
+  <li *ngFor="let user of users">
+    {{ user.firstName }} {{ user.lastName }}
+  </li>
+</ul>
 
+<h1>Posts</h1>
+<ul>
+  <li *ngFor="let post of posts">
+    {{ post.title }}
+  </li>
+</ul>
+
+<h1>Comments</h1>
+<ul>
+  <li *ngFor="let comment of comments">
+    {{ comment.body }}
+  </li>
+</ul>
+
+<h1>Todos</h1>
+<ul>
+  <li *ngFor="let todo of todos">
+    {{ todo.todo }} - {{ todo.completed }}
+  </li>
+</ul>
+
+<h1>Carts</h1>
+<ul>
+  <li *ngFor="let cart of carts">
+    Cart #{{ cart.id }}
+  </li>
+</ul>
+
+<h1>Quotes</h1>
+<ul>
+  <li *ngFor="let quote of quotes">
+    "{{ quote.quote }}"
+  </li>
+</ul>
+
+<h1>Recipes</h1>
+<ul>
+  <li *ngFor="let recipe of recipes">
+    {{ recipe.name }}
+  </li>
+</ul>
