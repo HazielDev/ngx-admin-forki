@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { NbMenuModule, NbSpinnerModule, NbCardModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
@@ -14,6 +15,7 @@ import { CustomTableComponent } from './shared/custom-table/custom-table.compone
   imports: [
     PagesRoutingModule,
     ThemeModule,
+    FormsModule,
     NbMenuModule,
     NbSpinnerModule,
     NbCardModule,
