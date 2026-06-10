@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NbMenuModule } from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -13,6 +14,7 @@ import { ProductsComponent } from './products/products/products.component';
   imports: [
     PagesRoutingModule,
     ThemeModule,
+    FormsModule,
     NbMenuModule,
     DashboardModule,
     ECommerceModule,

@@ -1,13 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ProductsService } from '../../services/products/products.service';
-import { UsersService } from '../../services/users/users.service';
-import { PostsService } from '../../services/posts/posts.service';
-import { CommentsService } from '../../services/comments/comments.service';
-import { TodosService } from '../../services/todos/todos.service';
-import { CartsService } from '../../services/carts/carts.service';
-import { QuotesService } from '../../services/quotes/quotes.service';
-import { RecipesService } from '../../services/recipes/recipes.service';
 
 @Component({
   selector: 'ngx-e-commerce',
@@ -16,57 +8,61 @@ import { RecipesService } from '../../services/recipes/recipes.service';
 export class ECommerceComponent implements OnInit {
 
   products: any[] = [];
-  users: any[] = [];
-  posts: any[] = [];
-  comments: any[] = [];
-  todos: any[] = [];
-  carts: any[] = [];
-  quotes: any[] = [];
-  recipes: any[] = [];
 
-  constructor(
-    private productsService: ProductsService,
-    private usersService: UsersService,
-    private postsService: PostsService,
-    private commentsService: CommentsService,
-    private todosService: TodosService,
-    private cartsService: CartsService,
-    private quotesService: QuotesService,
-    private recipesService: RecipesService
-  ) {}
+  selectedId = 1;
+
+  newProduct = {
+    title: '',
+    price: 0
+  };
+
+  updateData = {
+    title: ''
+  };
+
+  constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
 
+  loadProducts(): void {
     this.productsService.getProducts().subscribe(data => {
       this.products = data.products;
     });
+  }
 
-    this.usersService.getUsers().subscribe(data => {
-      this.users = data.users;
-    });
+  getProductById(): void {
+    this.productsService.getProductById(this.selectedId)
+      .subscribe(data => {
+        console.log('GET BY ID', data);
+        alert(`Found: ${data.title}`);
+      });
+  }
 
-    this.postsService.getPosts().subscribe(data => {
-      this.posts = data.posts;
-    });
+  addProduct(): void {
+    this.productsService.createProduct(this.newProduct)
+      .subscribe(data => {
+        console.log('CREATED', data);
+        alert(`Created: ${data.title}`);
+      });
+  }
 
-    this.commentsService.getComments().subscribe(data => {
-      this.comments = data.comments;
+  updateProduct(): void {
+    this.productsService.updateProduct(
+      this.selectedId,
+      this.updateData
+    ).subscribe(data => {
+      console.log('UPDATED', data);
+      alert(`Updated: ${data.title}`);
     });
+  }
 
-    this.todosService.getTodos().subscribe(data => {
-      this.todos = data.todos;
-    });
-
-    this.cartsService.getCarts().subscribe(data => {
-      this.carts = data.carts;
-    });
-
-    this.quotesService.getQuotes().subscribe(data => {
-      this.quotes = data.quotes;
-    });
-
-    this.recipesService.getRecipes().subscribe(data => {
-      this.recipes = data.recipes;
-    });
+  deleteProduct(): void {
+    this.productsService.deleteProduct(this.selectedId)
+      .subscribe(data => {
+        console.log('DELETED', data);
+        alert(`Deleted Product ID ${data.id}`);
+      });
   }
 }
