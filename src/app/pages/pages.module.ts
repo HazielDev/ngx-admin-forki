@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { NbMenuModule, NbSpinnerModule, NbCardModule } from '@nebular/theme';
+import { NbMenuModule, NbCardModule, NbSpinnerModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -9,16 +10,16 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ProductsComponent } from './products/products/products.component';
-import { CustomTableComponent } from './shared/custom-table/custom-table.component';
 
 @NgModule({
   imports: [
+    CommonModule,
     PagesRoutingModule,
     ThemeModule,
     FormsModule,
     NbMenuModule,
-    NbSpinnerModule,
     NbCardModule,
+    NbSpinnerModule,
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
@@ -26,7 +27,6 @@ import { CustomTableComponent } from './shared/custom-table/custom-table.compone
   declarations: [
     PagesComponent,
     ProductsComponent,
-    CustomTableComponent,
   ],
 })
 export class PagesModule {
