@@ -11,6 +11,14 @@ export class ECommerceComponent implements OnInit {
 
   selectedId = 1;
 
+  get summaryEntries() {
+    return [
+      { label: 'Products loaded', value: this.products.length },
+      { label: 'Selected ID', value: this.selectedId },
+      { label: 'Current mode', value: 'CRUD playground' },
+    ];
+  }
+
   newProduct = {
     title: '',
     price: 0
