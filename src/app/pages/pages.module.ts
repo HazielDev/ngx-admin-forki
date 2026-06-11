@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NbMenuModule, NbCardModule, NbSpinnerModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
@@ -15,6 +16,7 @@ import { ProductsComponent } from './products/products/products.component';
     CommonModule,
     PagesRoutingModule,
     ThemeModule,
+    FormsModule,
     NbMenuModule,
     NbCardModule,
     NbSpinnerModule,

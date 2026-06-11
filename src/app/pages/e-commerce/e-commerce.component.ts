@@ -9,12 +9,60 @@ export class ECommerceComponent implements OnInit {
 
   products: any[] = [];
 
+  selectedId = 1;
+
+  newProduct = {
+    title: '',
+    price: 0
+  };
+
+  updateData = {
+    title: ''
+  };
+
   constructor(private productsService: ProductsService) {}
 
   ngOnInit(): void {
+    this.loadProducts();
+  }
+
+  loadProducts(): void {
     this.productsService.getProducts().subscribe(data => {
-      console.log(data);
       this.products = data.products;
     });
+  }
+
+  getProductById(): void {
+    this.productsService.getProductById(this.selectedId)
+      .subscribe(data => {
+        console.log('GET BY ID', data);
+        alert(`Found: ${data.title}`);
+      });
+  }
+
+  addProduct(): void {
+    this.productsService.createProduct(this.newProduct)
+      .subscribe(data => {
+        console.log('CREATED', data);
+        alert(`Created: ${data.title}`);
+      });
+  }
+
+  updateProduct(): void {
+    this.productsService.updateProduct(
+      this.selectedId,
+      this.updateData
+    ).subscribe(data => {
+      console.log('UPDATED', data);
+      alert(`Updated: ${data.title}`);
+    });
+  }
+
+  deleteProduct(): void {
+    this.productsService.deleteProduct(this.selectedId)
+      .subscribe(data => {
+        console.log('DELETED', data);
+        alert(`Deleted Product ID ${data.id}`);
+      });
   }
 }

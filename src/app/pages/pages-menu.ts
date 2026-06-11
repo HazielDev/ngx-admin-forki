@@ -37,6 +37,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
         title: 'Smart Table',
         link: '/pages/tables/smart-table',
       },
+      {
+        title: 'Productos',
+        link: '/pages/products',
+      },
     ],
   },
   {
