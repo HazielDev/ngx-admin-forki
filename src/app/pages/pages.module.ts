@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import { CommonModule } from '@angular/common';
+import { NbMenuModule, NbCardModule, NbSpinnerModule } from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -11,9 +12,12 @@ import { ProductsComponent } from './products/products/products.component';
 
 @NgModule({
   imports: [
+    CommonModule,
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
+    NbCardModule,
+    NbSpinnerModule,
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,
