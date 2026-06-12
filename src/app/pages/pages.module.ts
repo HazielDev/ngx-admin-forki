@@ -10,6 +10,7 @@ import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { ProductsComponent } from './products/products/products.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { ProductsComponent } from './products/products/products.component';
     NbMenuModule,
     NbCardModule,
     NbSpinnerModule,
+    SharedModule,
     DashboardModule,
     ECommerceModule,
     MiscellaneousModule,

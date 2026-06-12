@@ -18,4 +18,9 @@ export class ProductsComponent implements OnInit {
       this.products = data.products;
     });
   }
+
+  // Método temporal para el botón del Header
+  onAddProduct(): void {
+    console.log('Abrir formulario o modal para nuevo producto');
+  }
 }

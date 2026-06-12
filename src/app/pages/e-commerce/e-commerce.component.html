@@ -1,99 +1,70 @@
-<<<<<<< HEAD
-<nb-card>
-  <nb-card-body>
-    <h2>¡Bienvenido al Dashboard!</h2>
-  </nb-card-body>
-</nb-card>
-=======
-<h1>🛍 Product CRUD Playground</h1>
+<div class="dashboard-hero">
+  <div class="hero-content">
+    <h1 class="hero-title">¡Bienvenido al Dashboard!</h1>
+    <p class="hero-subtitle">Product CRUD Playground</p>
+  </div>
+</div>
 
-<ngx-summary-card
-  title="E-commerce summary"
-  subtitle="Indicadores de la pantalla de productos"
-  [entries]="summaryEntries">
-</ngx-summary-card>
+<div class="row">
+  <div class="col-12">
+    <ngx-summary-card
+      title="E-commerce summary"
+      subtitle="Indicadores de la pantalla de productos"
+      [entries]="summaryEntries">
+    </ngx-summary-card>
+  </div>
+</div>
 
-<hr>
+<div class="row mt-4">
+  
+  <div class="col-md-6 mb-4">
+    <nb-card class="chart-card">
+      <nb-card-header>🔍 Consultar Producto</nb-card-header>
+      <nb-card-body>
+        <div class="d-flex align-items-center" style="gap: 1rem;">
+          <input type="number" nbInput fullWidth [(ngModel)]="selectedId" placeholder="Ingresa el ID del producto">
+          <button nbButton status="info" (click)="getProductById()">Buscar</button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
 
-<h2>Get Product By ID</h2>
+  <div class="col-md-6 mb-4">
+    <nb-card class="chart-card">
+      <nb-card-header>🗑️ Eliminar Producto</nb-card-header>
+      <nb-card-body>
+        <div class="d-flex align-items-center" style="gap: 1rem;">
+          <input type="number" nbInput fullWidth [(ngModel)]="selectedId" placeholder="ID a eliminar">
+          <button nbButton status="danger" (click)="deleteProduct()">Eliminar</button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
 
-<input
-  type="number"
-  [(ngModel)]="selectedId"
-  placeholder="Product ID">
+  <div class="col-md-6 mb-4">
+    <nb-card class="chart-card">
+      <nb-card-header>➕ Crear Nuevo Producto</nb-card-header>
+      <nb-card-body>
+        <div class="form-group">
+          <input type="text" nbInput fullWidth [(ngModel)]="newProduct.title" placeholder="Nombre del producto" style="margin-bottom: 1rem;">
+          <input type="number" nbInput fullWidth [(ngModel)]="newProduct.price" placeholder="Precio" style="margin-bottom: 1.5rem;">
+          <button nbButton status="success" fullWidth (click)="addProduct()">Crear Producto</button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
 
-<button (click)="getProductById()">
-  Get Product
-</button>
+  <div class="col-md-6 mb-4">
+    <nb-card class="chart-card">
+      <nb-card-header>✏️ Actualizar Producto</nb-card-header>
+      <nb-card-body>
+        <div class="form-group">
+          <input type="number" nbInput fullWidth [(ngModel)]="selectedId" placeholder="ID del producto" style="margin-bottom: 1rem;">
+          <input type="text" nbInput fullWidth [(ngModel)]="newProduct.title" placeholder="Nuevo Título" style="margin-bottom: 1.5rem;">
+          <button nbButton status="warning" fullWidth (click)="updateProduct()">Actualizar Producto</button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
 
-<hr>
-
-<h2>Create Product</h2>
-
-<input
-  type="text"
-  [(ngModel)]="newProduct.title"
-  placeholder="Title">
-
-<input
-  type="number"
-  [(ngModel)]="newProduct.price"
-  placeholder="Price">
-
-<button (click)="addProduct()">
-  Create Product
-</button>
-
-<hr>
-
-<h2>Update Product</h2>
-
-<input
-  type="number"
-  [(ngModel)]="selectedId"
-  placeholder="Product ID">
-
-<input
-  type="text"
-  [(ngModel)]="updateData.title"
-  placeholder="New Title">
-
-<button (click)="updateProduct()">
-  Update Product
-</button>
-
-<hr>
-
-<h2>Delete Product</h2>
-
-<input
-  type="number"
-  [(ngModel)]="selectedId"
-  placeholder="Product ID">
-
-<button (click)="deleteProduct()">
-  Delete Product
-</button>
-
-<hr>
-
-<h2>All Products</h2>
-
-<button (click)="loadProducts()">
-  Refresh Products
-</button>
-
-<table border="1" cellpadding="10">
-  <tr>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Price</th>
-  </tr>
-
-  <tr *ngFor="let product of products">
-    <td>{{ product.id }}</td>
-    <td>{{ product.title }}</td>
-    <td>${{ product.price }}</td>
-  </tr>
-</table>
->>>>>>> origin/dev
+</div>
