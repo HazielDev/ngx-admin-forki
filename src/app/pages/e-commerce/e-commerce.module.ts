@@ -8,12 +8,14 @@ import {
   NbIconModule,
   NbSelectModule,
   NbListModule,
+  NbWindowModule,
 } from '@nebular/theme';
 import { NgxEchartsModule } from 'ngx-echarts';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 import { ThemeModule } from '../../@theme/theme.module';
 import { ECommerceComponent } from './e-commerce.component';
+import { ProductWindowComponent } from './product-window/product-window.component';
 import { ProfitCardComponent } from './profit-card/profit-card.component';
 import { ECommerceChartsPanelComponent } from './charts-panel/charts-panel.component';
 import { OrdersChartComponent } from './charts-panel/charts/orders-chart.component';
@@ -68,6 +70,7 @@ import { FormsModule } from '@angular/forms';
     NbTabsetModule,
     NbSelectModule,
     NbListModule,
+    NbWindowModule,
     ChartModule,
     NbProgressBarModule,
     NgxEchartsModule,
@@ -76,6 +79,7 @@ import { FormsModule } from '@angular/forms';
   ],
   declarations: [
     ECommerceComponent,
+    ProductWindowComponent,
     StatsCardFrontComponent,
     StatsAreaChartComponent,
     StatsBarAnimationChartComponent,
