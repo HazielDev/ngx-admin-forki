@@ -11,12 +11,14 @@ export class ECommerceComponent implements OnInit {
 
   products: any[] = [];
 
-  selectedId = 1;
+  searchId: number | null = null;
+  deleteId: number | null = null;
+  updateId: number | null = null;
 
   get summaryEntries() {
     return [
       { label: 'Products loaded', value: this.products.length },
-      { label: 'Selected ID', value: this.selectedId },
+      { label: 'Search ID', value: this.searchId || '-' },
       { label: 'Current mode', value: 'CRUD playground' },
     ];
   }
@@ -44,7 +46,8 @@ export class ECommerceComponent implements OnInit {
   }
 
   getProductById(): void {
-    this.productsService.getProductById(this.selectedId)
+    if (!this.searchId) return;
+    this.productsService.getProductById(this.searchId)
       .subscribe(data => {
         console.log('GET BY ID', data);
         this.dialogService.open(ProductWindowComponent, {
@@ -79,8 +82,9 @@ export class ECommerceComponent implements OnInit {
   }
 
   updateProduct(): void {
+    if (!this.updateId) return;
     this.productsService.updateProduct(
-      this.selectedId,
+      this.updateId,
       this.updateData
     ).subscribe(data => {
       console.log('UPDATED', data);
@@ -99,7 +103,8 @@ export class ECommerceComponent implements OnInit {
   }
 
   deleteProduct(): void {
-    this.productsService.deleteProduct(this.selectedId)
+    if (!this.deleteId) return;
+    this.productsService.deleteProduct(this.deleteId)
       .subscribe(data => {
         console.log('DELETED', data);
         this.dialogService.open(ProductWindowComponent, {
