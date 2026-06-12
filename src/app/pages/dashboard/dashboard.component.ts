@@ -18,6 +18,12 @@ export class DashboardComponent implements OnDestroy {
 
   private alive = true;
 
+  dashboardSummaryEntries = [
+    { label: 'Status cards', value: 4 },
+    { label: 'Metric panels', value: 8 },
+    { label: 'Live widgets', value: 5 },
+  ];
+
   solarValue!: number;
 
   lightCard: CardSettings = {
