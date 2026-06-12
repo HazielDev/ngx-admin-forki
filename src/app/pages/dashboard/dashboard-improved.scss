@@ -4,7 +4,7 @@
    1. LAYOUT OVERRIDES (Glassmorphism & Barras Flotantes)
    ========================================================================== */
 nb-layout {
-  background-color: #36a37e !important; 
+  background-color: #36a37e !important;
 }
 
 nb-layout-header nav {
@@ -139,7 +139,7 @@ input.size-medium {
 
 .status-cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 100%));
   gap: 1.5rem;
 }
 
@@ -202,7 +202,7 @@ input.size-medium {
 
 .chart-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 100%));
   gap: 2rem;
 }
 

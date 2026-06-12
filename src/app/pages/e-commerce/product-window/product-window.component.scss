@@ -84,7 +84,7 @@
 
 .detail-row {
   display: grid;
-  grid-template-columns: 120px 1fr;
+  grid-template-columns: 120px auto;
   gap: 1rem;
   padding: 1rem;
   background: #ffffff;
@@ -193,3 +193,4 @@
   color: #64748b;
   margin-top: 1rem;
 }
+
